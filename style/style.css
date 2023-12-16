@@ -1,0 +1,130 @@
+/* Reset default padding and margin */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Center the container */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Style for the container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 200px;
+}
+
+/* Style for the moving elements */
+.moving-element {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the divs circular */
+}
+/* Base styling for .moving-element:nth-child(1) */
+.moving-element:nth-child(1) {
+    background-color: blue;
+    transition: transform 5s; /* Define the transition property here */
+}
+
+/* Define the transform property for .moving-element:nth-child(1):hover */
+/* .moving-element:nth-child(1):hover {
+    transform: translateX(80%); /* Apply the transform property on hover 
+} */
+.temp-class {
+    transform: translateX(80%);
+    transition: transform 5s;
+}
+
+.moving-element:nth-child(2) {
+    background-color: red;
+    transition: transform 5s; /* Define the transition property here */
+
+}
+.moving-element:nth-child(3) {
+    background-color: green;
+    transition: transform 5s; /* Define the transition property here */
+
+}
+.moving-element:nth-child(4) {
+    background-color: yellow;
+    transition: transform 5s; /* Define the transition property here */
+}
+
+.moving-element:nth-child(5) {
+    background-color: orange;
+    transition: transform 5s; /* Define the transition property here */
+}
+
+.moving-element:nth-child(6) {
+    background-color: purple;
+    transition: transform 5s; /* Define the transition property here */
+}
+
+.moving-element:nth-child(7) {
+    background-color: pink;
+    transition: transform 5s; /* Define the transition property here */
+}
+
+.moving-element:nth-child(8) {
+    background-color: cyan;
+    transition: transform 5s; /* Define the transition property here */
+}
+
+.moving-element:nth-child(9) {
+    background-color: lime;
+    transition: transform 5s; /* Define the transition property here */
+}
+
+.moving-element:nth-child(10) {
+    background-color: gold;
+    transition: transform 5s; /* Define the transition property here */
+}
+/* Other styles you have */
+
+.start-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 100%;
+}
+
+.start-button:hover {
+    background-color: #2980b9;
+}
+
+/* Moving the elements */
+/* .moving-active{
+
+} */
+.container {
+    position: relative; /* Ensure container is positioned relatively */
+    /* Other styles for the container */
+}
+
+/* Base styling for .moving-element */
+.moving-element {
+    width: 50px;
+    height: 50px;
+    background-color: blue; /* Adjust as needed */
+    /* Other styles for the moving elements */
+}
+
+/* Apply transition for .temp-class */
+.temp-class {
+    transform: translateX(80%);
+    transition: transform 5s;
+}
