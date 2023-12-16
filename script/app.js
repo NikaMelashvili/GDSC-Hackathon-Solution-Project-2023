@@ -6,50 +6,66 @@ const startBtn = document.querySelector('#startButton');
 const container = document.querySelector('.container');
 const containerWidth = container.offsetWidth;
 
-// Function to handle movement and reset
+const fishType = function(){
+    const images = [
+        'images/small-shark.png',
+        'images/small-shark.png',
+        'images/small-shark.png',
+        'images/small-shark.png',
+        'images/small-shark.png',
+        'images/gold-fish.png',
+        'images/dolphin_small.png',
+        'images/dolphin_small.png',
+        'images/dolphin_small.png',
+        'images/dolphin_small.png'
+    ];
+
+    mainElements.forEach(function(element, index) {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const randomImage = images[randomIndex]; 
+
+        element.innerHTML = `<img style="width: 100%;" src="${randomImage}" alt="fish-${index}">`;
+        images.splice(randomIndex, 1);
+    });
+}
+
+fishType();
+
 const handleMovement = function () {
     startBtn.addEventListener('click', function (e) {
         e.preventDefault();
 
-        mainElements.forEach(function (element) {
-            element.classList.add('temp-class');
-            const moveRight = Math.random() < 0.5; // 50% chance of moving right
+        mainElements.forEach(function (e) {
+            e.classList.add('temp-class');
+            const moveRight = Math.random() < 0.5; 
 
             if (moveRight) {
-                moveElementRight(element);
+                moveElementRight(e);
             } else {
-                moveElementLeft(element);
+                moveElementLeft(e);
             }
         });
-
-        // Reset animation after 5 seconds
         setTimeout(() => {
-            mainElements.forEach(function (element) {
-                element.classList.remove('temp-class');
-                element.style.transform = 'translateX(0)';
+            mainElements.forEach(function (e) {
+                e.classList.remove('temp-class');
+                e.style.transform = 'translateX(0)';
             });
         }, 5000);
     });
 };
-mainElements.forEach(function(element) {
-    element.addEventListener('click', function() {
-      // Hide the clicked element by setting display to 'none'
-      element.style.display = 'none';
+mainElements.forEach(function(e) {
+    e.addEventListener('click', function() {
+      e.style.display = 'none';
     });
   });
 const clickStartButton = () => {
-    startBtn.click(); // Simulate a click on the start button
-
-    // Trigger the click again after 5 seconds
+    startBtn.click(); 
     setTimeout(() => {
         clickStartButton();
     }, 11000);
 };
-
-// Initial call to start the continuous movement
 clickStartButton();
 
-// Function to set random initial positions and colors for elements
 const setRandomStyles = function () {
     const occupiedPositions = new Set();
 
@@ -74,22 +90,10 @@ const setRandomStyles = function () {
         element.style.left = randomX + 'px';
         occupiedPositions.add(randomX);
 
-        const randomColor = getRandomColor();
-        element.style.backgroundColor = randomColor;
+        
     });
 };
 
-// Function to generate random color
-const getRandomColor = function () {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-};
-
-// Function to move elements to the right
 const moveElementRight = function (element) {
     const elementWidth = element.offsetWidth;
     const elementPosition = element.getBoundingClientRect().left - container.getBoundingClientRect().left;
@@ -98,7 +102,6 @@ const moveElementRight = function (element) {
     element.style.transition = 'transform 5s ease-in-out';
     element.style.transform = `translateX(${distanceToContainerEnd}px)`;
 
-    // After the transition, move the element to the other side if it reaches the end
     element.addEventListener('transitionend', function () {
         const newPosition = element.getBoundingClientRect().left - container.getBoundingClientRect().left;
         if (newPosition >= containerWidth) {
@@ -107,15 +110,12 @@ const moveElementRight = function (element) {
         }
     });
 };
-
-// Function to move elements to the left
 const moveElementLeft = function (element) {
     const elementPosition = element.getBoundingClientRect().left - container.getBoundingClientRect().left;
 
     element.style.transition = 'transform 5s ease-in-out';
     element.style.transform = `translateX(-${elementPosition}px)`;
 
-    // After the transition, move the element to the other side if it reaches the beginning
     element.addEventListener('transitionend', function () {
         const newPosition = element.getBoundingClientRect().left - container.getBoundingClientRect().left;
         if (newPosition + element.offsetWidth <= 0) {
@@ -124,12 +124,23 @@ const moveElementLeft = function (element) {
         }
     });
 };
-
-
-// Call the function to handle movement and reset
+console.log(mainElements)
+function randomFish() {
+    const randomIndex = Math.floor(Math.random() * mainElements.length);
+    const randomElement = mainElements[randomIndex];
+    
+    setTimeout(function(){
+        randomElement.classList.add('moving-elements-visible');
+        setTimeout(function(){
+            randomElement.classList.remove('moving-elements-visible');
+        }, 3000); 
+    }, 3000); 
+    setTimeout(function() {
+        randomFish(); 
+    }, 2000); 
+}
+randomFish();
 handleMovement();
-
-// Call the function to set random initial positions and colors after the DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
     setRandomStyles();
 });
