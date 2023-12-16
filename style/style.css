@@ -1,99 +1,109 @@
-/* Reset default padding and margin */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
-/* Center the container */
 body {
+    background: url("https://steemitimages.com/p/C3TZR1g81UNaPs7vzNXHueW5ZM76DSHWEY7onmfLxcK2iPPVzN4oRMxdisufRN5JeXnb4YLtRXbXTLr4tRknQrKoPxfhFHxrp8nZhnKJ7G6xd7gyocJbA2h?format=match&mode=fit");
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
 }
-
-/* Style for the container */
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
-    height: 200px;
+    width: 100%;
+    height: 400px;
 }
 
-/* Style for the moving elements */
+.btn-container{
+    position: relative; 
+    height: 200px; 
+}
+#startButton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px; 
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
 .moving-element {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Makes the divs circular */
+    transition: transform 5s;
+    visibility: hidden;
+    opacity: 0;
 }
-/* Base styling for .moving-element:nth-child(1) */
-.moving-element:nth-child(1) {
-    background-color: blue;
-    transition: transform 5s; /* Define the transition property here */
+.body-con{
+    display: inline;
 }
-
-/* Define the transform property for .moving-element:nth-child(1):hover */
-/* .moving-element:nth-child(1):hover {
-    transform: translateX(80%); /* Apply the transform property on hover 
-} */
+#element-thats-moving{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving1{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving2{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving3{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving4{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving5{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving6{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving7{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving8{
+    width: 130px;
+    height: 130px;
+}
+#element-thats-moving9{
+    width: 130px;
+    height: 130px;
+}
+.moving-element {
+    width: 500px;
+    height: 500px;
+}
+.moving-element {
+    width: 300px; 
+    height: 300px; 
+}
+.moving-elements-visible{
+    visibility: visible;
+    opacity: 100;
+}
 .temp-class {
     transform: translateX(80%);
     transition: transform 5s;
 }
-
-.moving-element:nth-child(2) {
-    background-color: red;
-    transition: transform 5s; /* Define the transition property here */
-
-}
-.moving-element:nth-child(3) {
-    background-color: green;
-    transition: transform 5s; /* Define the transition property here */
-
-}
-.moving-element:nth-child(4) {
-    background-color: yellow;
-    transition: transform 5s; /* Define the transition property here */
-}
-
-.moving-element:nth-child(5) {
-    background-color: orange;
-    transition: transform 5s; /* Define the transition property here */
-}
-
-.moving-element:nth-child(6) {
-    background-color: purple;
-    transition: transform 5s; /* Define the transition property here */
-}
-
-.moving-element:nth-child(7) {
-    background-color: pink;
-    transition: transform 5s; /* Define the transition property here */
-}
-
-.moving-element:nth-child(8) {
-    background-color: cyan;
-    transition: transform 5s; /* Define the transition property here */
-}
-
-.moving-element:nth-child(9) {
-    background-color: lime;
-    transition: transform 5s; /* Define the transition property here */
-}
-
-.moving-element:nth-child(10) {
-    background-color: gold;
-    transition: transform 5s; /* Define the transition property here */
-}
-/* Other styles you have */
-
 .start-button {
     padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
+    background-color: #12354b;
+    color: #222;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -101,30 +111,31 @@ body {
     transition: background-color 0.3s ease;
     margin-bottom: 100%;
 }
-
 .start-button:hover {
     background-color: #2980b9;
 }
-
-/* Moving the elements */
-/* .moving-active{
-
-} */
 .container {
-    position: relative; /* Ensure container is positioned relatively */
-    /* Other styles for the container */
+    position: relative; 
 }
-
-/* Base styling for .moving-element */
 .moving-element {
     width: 50px;
     height: 50px;
-    background-color: blue; /* Adjust as needed */
-    /* Other styles for the moving elements */
 }
-
-/* Apply transition for .temp-class */
 .temp-class {
     transform: translateX(80%);
     transition: transform 5s;
+}
+.fishing-pole{
+    position: absolute;
+    top: 80%;
+    overflow: hidden;
+    transform: rotate(-55deg);
+}
+
+.main-parent{
+    display: inline;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
