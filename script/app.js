@@ -5,6 +5,10 @@ const mainElements = document.querySelectorAll('.moving-element');
 const startBtn = document.querySelector('#startButton');
 const container = document.querySelector('.container');
 const containerWidth = container.offsetWidth;
+const currentScore = document.querySelector('.label-for-score');
+let gameRunning = true;
+let playerScore = 0;
+let clickedElementCount = 0;
 
 const fishType = function(){
     const images = [
@@ -55,14 +59,25 @@ const handleMovement = function () {
 };
 mainElements.forEach(function(e) {
     e.addEventListener('click', function() {
-      e.style.display = 'none';
+        e.style.display = 'none';
+        let score = 0; 
+        score++;
+        currentScore.textContent = score;
+        clickedElementCount++;
+
+        if (clickedElementCount === mainElements.length) {
+            gameRunning = false;
+            alert('Game Over! You clicked all elements.');
+        }
     });
   });
 const clickStartButton = () => {
-    startBtn.click(); 
-    setTimeout(() => {
-        clickStartButton();
-    }, 11000);
+    while(gameRunning){
+        startBtn.click(); 
+        setTimeout(() => {
+            clickStartButton();
+        }, 11000);
+    }
 };
 clickStartButton();
 
@@ -126,18 +141,20 @@ const moveElementLeft = function (element) {
 };
 console.log(mainElements)
 function randomFish() {
-    const randomIndex = Math.floor(Math.random() * mainElements.length);
-    const randomElement = mainElements[randomIndex];
-    
-    setTimeout(function(){
-        randomElement.classList.add('moving-elements-visible');
+    while(gameRunning){
+        const randomIndex = Math.floor(Math.random() * mainElements.length);
+        const randomElement = mainElements[randomIndex];
+        
         setTimeout(function(){
-            randomElement.classList.remove('moving-elements-visible');
+            randomElement.classList.add('moving-elements-visible');
+            setTimeout(function(){
+                randomElement.classList.remove('moving-elements-visible');
+            }, 3000); 
         }, 3000); 
-    }, 3000); 
-    setTimeout(function() {
-        randomFish(); 
-    }, 2000); 
+        setTimeout(function() {
+            randomFish(); 
+        }, 2000); 
+    }
 }
 randomFish();
 handleMovement();
