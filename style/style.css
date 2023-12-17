@@ -40,7 +40,10 @@ body {
     transition: transform 5s;
     visibility: hidden;
     opacity: 0;
+    cursor: pointer;
+    border-radius: 50%;
 }
+
 .body-con{
     display: inline;
 }
@@ -134,8 +137,23 @@ body {
 
 .main-parent{
     display: inline;
-    width: 90vw;
+    width: 80vw;
     justify-content: center;
     align-items: center;
     margin: auto;
+}
+.label-for-score{
+    height: 40xp;
+    width: 100%;
+    margin: auto;
+}
+.label-wrapper div p{
+    display: flex;
+    font-size: 30px;
+}
+.label-wrapper{
+    background-color: beige;
+    border: 1px brown solid;
+    width: 11%;
+    padding: 5px;
 }
