@@ -6,7 +6,9 @@ const startBtn = document.querySelector('#startButton');
 const container = document.querySelector('.container');
 const containerWidth = container.offsetWidth;
 const currentScore = document.querySelector('.label-for-score');
-let gameRunning = true;
+const bestScore = document.querySelector('.label-for-best-score');
+bestScore.textContent = null;
+let gameRunning = false;
 let playerScore = 0;
 let clickedElementCount = 0;
 
@@ -38,6 +40,7 @@ fishType();
 const handleMovement = function () {
     startBtn.addEventListener('click', function (e) {
         e.preventDefault();
+        currentScore.value = 0;
 
         mainElements.forEach(function (e) {
             e.classList.add('temp-class');
@@ -57,27 +60,36 @@ const handleMovement = function () {
         }, 5000);
     });
 };
+let score = 0;
+
 mainElements.forEach(function(e) {
     e.addEventListener('click', function() {
+
         e.style.display = 'none';
-        let score = 0; 
         score++;
-        currentScore.textContent = score;
+        currentScore.value = score;
+        currentScore.textContent = `Score ${score}`;
+        currentScore.style.fontSize = '30px';
         clickedElementCount++;
 
         if (clickedElementCount === mainElements.length) {
-            gameRunning = false;
+            const currentNumericScore = Number(currentScore.value);
+            const bestNumericScore = Number(bestScore.textContent);
             alert('Game Over! You clicked all elements.');
+            currentScore.value = 0;
+
+            if (currentNumericScore > bestNumericScore) {
+                bestScore.textContent = `Best Score ${currentNumericScore}`;
+                bestScore.style.fontSize = '30px';
+            }
         }
     });
-  });
+});
 const clickStartButton = () => {
-    while(gameRunning){
-        startBtn.click(); 
-        setTimeout(() => {
-            clickStartButton();
-        }, 11000);
-    }
+    startBtn.click(); 
+    setTimeout(() => {
+        clickStartButton();
+    }, 11000);
 };
 clickStartButton();
 
@@ -104,8 +116,6 @@ const setRandomStyles = function () {
         element.style.position = 'absolute';
         element.style.left = randomX + 'px';
         occupiedPositions.add(randomX);
-
-        
     });
 };
 
@@ -139,22 +149,19 @@ const moveElementLeft = function (element) {
         }
     });
 };
-console.log(mainElements)
 function randomFish() {
-    while(gameRunning){
-        const randomIndex = Math.floor(Math.random() * mainElements.length);
-        const randomElement = mainElements[randomIndex];
-        
+    const randomIndex = Math.floor(Math.random() * mainElements.length);
+    const randomElement = mainElements[randomIndex];
+    
+    setTimeout(function(){
+        randomElement.classList.add('moving-elements-visible');
         setTimeout(function(){
-            randomElement.classList.add('moving-elements-visible');
-            setTimeout(function(){
-                randomElement.classList.remove('moving-elements-visible');
-            }, 3000); 
+            randomElement.classList.remove('moving-elements-visible');
         }, 3000); 
-        setTimeout(function() {
-            randomFish(); 
-        }, 2000); 
-    }
+    }, 3000); 
+    setTimeout(function() {
+        randomFish(); 
+    }, 2000); 
 }
 randomFish();
 handleMovement();
