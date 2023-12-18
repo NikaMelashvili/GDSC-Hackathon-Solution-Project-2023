@@ -1,0 +1,39 @@
+<div class="regi">
+  <form class="forrm" id="registrationForm" *ngIf="isRegistrationForm" (ngSubmit)="onSubmit('register')">
+    <h2 class="registration">Registration</h2>
+  
+    <!-- Registration form fields -->
+    <label for="username">Username:</label>
+    <input [(ngModel)]="registrationForm.username" placeholder="Username" type="text" id="username" name="username" required>
+  
+    <label for="firstName">First Name:</label>
+    <input [(ngModel)]="registrationForm.firstName" placeholder="First Name" type="text" id="firstName" name="firstName" required>
+  
+    <label for="lastName">Last Name:</label>
+    <input [(ngModel)]="registrationForm.lastName" placeholder="Last Name" type="text" id="lastName" name="lastName" required>
+  
+    <label for="email">Email:</label>
+    <input [(ngModel)]="registrationForm.email" placeholder="Email" type="email" id="email" name="email" required>
+  
+    <label for="password">Password:</label>
+    <input [(ngModel)]="registrationForm.password" placeholder="Password" type="password" id="password" name="password" required>
+  
+    <button type="submit">Register</button>
+  </form>
+  
+    <form class="forrm" id="loginForm" *ngIf="!isRegistrationForm" (ngSubmit)="onSubmit('login')">
+      <h2 class="registration">Login</h2>
+  
+      <!-- Login form fields -->
+      <label for="loginEmail">Email:</label>
+      <input  [(ngModel)]="loginForm.email" placeholder="Email" type="email" id="loginEmail" name="loginEmail" required>
+  
+      <label for="loginPassword">Password:</label>
+      <input  [(ngModel)]="loginForm.password" placeholder="Password" type="password" id="loginPassword" name="loginPassword" required>
+  
+      <a  href="profilepage"><button type="submit">Login</button></a>
+    </form>
+  
+    <a routerLink="profilepage"><button id="toggleFormButton" (click)="toggleForm()">Switch to {{ isRegistrationForm ? 'Login' : 'Registration' }}</button></a>
+  </div>
+  

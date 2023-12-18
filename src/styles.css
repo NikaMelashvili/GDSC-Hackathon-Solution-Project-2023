@@ -1,0 +1,449 @@
+:root{
+    --colorMain:rgb(19, 53, 102);
+    --colordarkText:rgb(19, 53, 102);
+    --colorDarkMainColor:rgb(47, 129, 244);
+    --colorText:white;
+    --colorBackground:white;
+    --postColor:#363636;
+    --paragraph:black;
+    --postColorHover:#515151;
+    --tagColor:#c6c6c6;
+    --shadowColor:black;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+body{
+    background-image: url(Sprinkle.svg);
+    background-size: cover;
+    object-fit: cover;
+}
+
+header {
+    background-color: hsla(0, 0%, 0%, 10%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    box-shadow: 0 0 20px 0 hsla(0, 0%, 100%, 0.407);
+}
+
+.items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.items li{
+    list-style: none;
+}
+.items a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    padding: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    color: var(--colorText);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.items a:hover{
+    /* background-color: var(--colorText); */
+    color: var(--colorMain);
+}
+.regi i{
+    padding: 5px;
+    font-size: 20px;
+    color: var(--colorText);
+    transition: 0.5s;
+}
+.regi i{
+    font-size: 1.7rem;
+    padding: 10px;
+    color: var(--colorText);
+    transition: 0.5s;
+}
+.regi i:hover{
+    color: var(--colordarkText);
+}
+main{
+    margin: 50px 0px;
+}
+main div{
+    height: 500px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo a{
+    text-decoration: none;
+    font-weight: 900;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.logo a
+{
+    font-size: 50px;
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    rgb(2, 13, 30) 0%,
+    rgb(7, 31, 65) 10%,
+    rgb(19, 53, 102) 20%,
+    rgb(83, 122, 176) 30%,
+    rgb(172, 185, 205) 40%,
+    rgb(203, 215, 230) 50%,
+    rgb(172, 185, 205) 60%,
+    rgb(83, 122, 176) 70%,
+    rgb(19, 53, 102) 80%,
+    rgb(7, 31, 65) 90%,
+    rgb(2, 13, 30)100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+@keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+  @keyframes animator{
+      0%{
+          opacity: 0;
+          transform: translateX(10%);
+      }100%{
+          opacity: 1;
+          transform: translateX(0%);
+      }
+  }
+
+/*nav hover*/
+  .navi ul li a{
+    position:1ative;
+    text-decoration:none;
+    transition:0.5s;
+  }
+  
+  .navi ul:hover li a{
+    transform:scale(1);
+    opacity:80%;
+
+  }
+  
+  .navi ul li a:hover{
+    transform:scale(1.2);
+    opacity:1;
+    text-decoration:none;
+    color:var(--colordarkText);
+  }
+  
+  .navi ul li a:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:var(--colorText);
+    transition:0.5s;
+    transform-origin:right;
+    transform:scaleX(0);
+    z-index:-1;
+  }
+  
+  .navi li a:hover:before{
+    transition:transform 0.5s;
+    transform-origin:left;
+    transform:scaleX(1);
+  }
+  .submenu1{
+    opacity: 0;
+    position: absolute;
+    top:35px;
+    visibility: hidden;
+    z-index: 20;
+    display: flex;
+    justify-content: space-around;
+    left: -400px;
+  }
+
+  .submenu1{
+    opacity: 0;
+    position: absolute;
+    top:35px;
+    visibility: hidden;
+    z-index: 20;
+    display: flex;
+    justify-content: space-around;
+    left: -400px;
+  }
+/* Add this code to make the submenu appear when hovering over Categories */
+.items .list {
+    position: relative; /* Add this to create a context for absolute positioning */
+}
+
+/* Style for the submenu */
+.submenu1 {
+    position: absolute;
+    top: 100%; /* Position it below the parent list item */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 20;
+    transition: all 0.3s; /* Add a transition for a smooth appearance */
+    transform: translateX(-20px);
+}
+.sub{
+    position: relative;
+    display: flex;
+}
+.items .list:hover .submenu1 {
+    opacity: 1;
+    visibility: visible;
+    filter: none;
+    opacity: 100%;
+}
+
+.crypto{
+    display: flex;
+    flex-direction: column;
+}
+
+.sub .crypto ul:hover li a{
+    transform:scale(1);
+    opacity:80%;
+
+  }
+.subsubmenu a{
+    font-size: 15px;
+    color: white;
+}
+.subsubmenu a:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:var();
+    transition:0.5s;
+    transform-origin:right;
+    transform:scaleX(0);
+    z-index:-1;
+}
+.submenu1{ 
+    background-color:hsla(0, 0%, 0%, 0.326);
+    color: var(--colorText);
+    backdrop-filter: blur(50px);
+}
+
+.content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.others{
+    align-items: end;
+    backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    box-shadow: 0 0 20px 0 hsla(0, 0%, 100%, 0.407);
+}
+.content a{
+    text-decoration: none;
+    color: white;
+    filter: drop-shadow(0 0 5px black);
+}
+.footer-content{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (min-width:769px) and (max-width:1024px) {
+    .logo{
+        display: none;
+    }
+    .navi{
+        width: 100%;
+    }
+    .submenu1{
+        display: none;
+    }
+    .navi{
+        width: 100%;
+    }
+    .regi{
+        margin: 0 20px;
+    }
+    .list{
+        width: 100%;
+    }
+    .list a{
+        width: 50%;
+    }
+    .art{
+        width: 100%;
+        flex-direction: column;
+    }
+    .bann{
+        left: 2.5%;
+    }
+    .bann h2{
+        font-size: 20px;
+        text-wrap: wrap;
+    }
+    .bann1 h2{
+        font-size: 13px;
+        text-wrap: wrap;
+    }
+    .bann p{
+        font-size: 15px;
+    }
+    .bann1 p{
+        font-size: 15px;
+    }
+    .carousel{
+        flex-direction: column;
+        margin-top: 450px;
+    }
+    .post{
+        width: 65%;
+        margin-top: 100px;
+    }
+    .post:hover{
+        width: 70%;
+    }
+    .anchor{
+        display: none;
+    }
+    .content{
+        width: 100%;
+    }
+    .post h3{
+        bottom: 5px;
+    }
+    .post h4{
+        bottom: -20px;
+    }
+    .dAndT{
+        margin-left: 320px;
+    }
+    footer{
+        margin-top: 600px;
+
+    }
+    .bann{
+        width: 90%;
+        transform: translateX(2.5%);
+    }
+    .bann1{
+        width: 90%;
+        transform: translateX(2.5%);
+    }
+}
+
+@media(max-width:769px){
+    .logo{
+        display: none;
+    }
+    .navi{
+      width: 100%;
+      z-index: 10;
+      background-color: transparent;
+  }
+  main{
+    margin-bottom: 80px;
+  }
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    .submenu1{
+        display: none;
+    }
+    .regi{
+        margin: 0 20px;
+    }
+    .list{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .items{
+        display: flex;
+        justify-content: center;
+    }
+    .list a{
+        width: 70%;
+    }
+
+    .art{
+        width: 100%;
+        flex-direction: row;
+    }
+    .bann h2{
+        font-size: 20px;
+        text-wrap: wrap;
+    }
+    .bann1 h2{
+        font-size: 13px;
+        text-wrap: wrap;
+    }
+    .bann p{
+        font-size: 15px;
+    }
+    .bann1 p{
+        font-size: 15px;
+    }
+    .carousel{
+        flex-direction: column;
+        margin-top: 280px;
+    }
+    .post{
+        width: 65%;
+        margin-top: 30px;
+    }
+    .post:hover{
+        width: 70%;
+    }
+    .anchor{
+        display: none;
+    }
+    .content{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .post h3{
+        bottom: 35px;
+    }
+    .post h4{
+        bottom:10px;
+    }
+    .dAndT{
+        margin-left: 130px;
+    }
+    footer{
+        margin-top: 350px;
+        margin-bottom:70px;
+    }
+    .bann{
+        width: 90%;
+        height: 50%;
+    }
+    .bann1{
+        width: 90%;
+        height: 50%;
+    }
+}
